@@ -11,8 +11,7 @@ struct ContentView: View {
     @State var showExchangeInfo = false
     @State var leftAmount =  ""
     @State var rightAmount = ""
-    
-    
+ 
     var body: some View {
         ZStack{
             // Background image
@@ -89,6 +88,7 @@ struct ContentView: View {
                 .padding()
                 .background(.black.opacity(0.5))
                 .clipShape(.capsule)
+                .colorScheme(.light)
                 
                 Spacer()
                 
@@ -106,10 +106,13 @@ struct ContentView: View {
                             .foregroundColor(.white)
                     }
                     .padding(.trailing)
+                    .sheet(isPresented: $showExchangeInfo){
+                        ExchangeInfo()
+                    }
                 }
                 
             }
-//            .border(.blue)
+            //            .border(.blue)
             
         }
     }
